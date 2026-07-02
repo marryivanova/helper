@@ -8,3 +8,4 @@
 * [📋 Работа с Linux (Диагностика и ресурсы)](linux.md)
 * [🐳 Работа с Docker (Сборка и управление)](docker.md)
 * [📋 Работа с проектом (poertry)](project.md)
+* [📋 CI/CD GitLab ](ci_cd.md)
