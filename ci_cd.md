@@ -1,5 +1,14 @@
 # CI/CD в GitLab
 
+#### «Какие стадии есть в пайплайне?» (классический ответ)
+
+- Checkout (забрать код из Git).
+- Install (скачать зависимости — npm i, mvn install).
+- Lint / Format (проверить стиль кода, чтобы не было мусора).
+- Build (скомпилировать в бинарник / собрать Docker-образ).
+- Test (юнит-тесты + иногда интеграционные).
+- Deploy (выкатить на окружение: Dev -> Staging -> Prod).
+
 Оф дока: https://docs.gitlab.com/ci/yaml/
 Пример по шагам: https://habr.com/ru/articles/498436/
 
