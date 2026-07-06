@@ -10,6 +10,7 @@
 * [📋 Работа с проектом (poertry)](project.md)
 * [📋 CI/CD GitLab ](ci_cd.md)
 * [📋 Все про Auth ](auth.md)
+* [📋 Пример использования ADC ](abc.md)
 
 
 ## Важные ресурсы:
