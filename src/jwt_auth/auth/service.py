@@ -10,7 +10,6 @@ from src.jwt_auth import settings
 from src.jwt_auth.auth.models import CreateUserInternal, UserReturnData
 from src.jwt_auth.database.core import DatabaseManager
 from src.jwt_auth.database.core_redis import RedisConnector
-
 from src.jwt_auth.database.model import User
 
 
