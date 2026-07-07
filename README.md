@@ -12,6 +12,7 @@
 * [📋 Pytest + Allure ](pytest.md)
 * [📋 Все про Auth ](auth.md)
 * [📋 Пример использования ABC ](abc.md)
+* [📋 Celery/kafka - Redis/RebbitMQ ](celery_redis.md)
 
 
 ## Важные ресурсы:
