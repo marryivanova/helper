@@ -1,4 +1,5 @@
 import pytest
+
 from src.abc_expl.sender.service.modal import MessageModel
 
 

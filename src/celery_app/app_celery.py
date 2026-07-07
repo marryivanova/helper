@@ -123,10 +123,12 @@ app.conf.beat_schedule = {
 }
 
 # ============ 10. АВТООБНАРУЖЕНИЕ ЗАДАЧ ============
-app.autodiscover_tasks([
-    "src.tasks.email",
-    "src.tasks.images",
-])
+app.autodiscover_tasks(
+    [
+        "src.tasks.email",
+        "src.tasks.images",
+    ]
+)
 
 # ============ 11. ЛОГГИРОВАНИЕ ============
 logger.info(f"Celery app configured with broker: {settings.redis.celery_broker_url}")
