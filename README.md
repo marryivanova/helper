@@ -9,6 +9,7 @@
 * [🐳 Работа с Docker (Сборка и управление)](docker.md)
 * [📋 Работа с проектом (poertry)](project.md)
 * [📋 CI/CD GitLab ](ci_cd.md)
+* [📋 Pytest + Allure ](pytest.md)
 * [📋 Все про Auth ](auth.md)
 * [📋 Пример использования ABC ](abc.md)
 
