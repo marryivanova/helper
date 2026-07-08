@@ -1,19 +1,15 @@
+import typing as t
 import urllib
 
 import httpx
-import typing as t
-from loguru import logger
+from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import RedirectResponse
-from fastapi import Request, HTTPException, Depends, APIRouter
+from loguru import logger
 
+from src.bridge.models.schemas import BaseResponse, ErrorResponse, TokenResponseCheckLoginPage
+from src.bridge.routers.settings import service_login_page_settings
 from src.bridge.service.login_page import AuthChecker
 from src.bridge.service.vpn_service import VPNService
-from src.bridge.routers.settings import service_login_page_settings
-from src.bridge.models.schemas import (
-    ErrorResponse,
-    TokenResponseCheckLoginPage,
-    BaseResponse,
-)
 
 router = APIRouter(tags=["Login Page"])
 
@@ -152,9 +148,7 @@ class LoginPageRouter:
         try:
             token_present = auth_checker.auth_cookie_name in request.cookies
             if not token_present:
-                return RedirectResponse(
-                    url=auth_checker.login_page_url, status_code=302
-                )
+                return RedirectResponse(url=auth_checker.login_page_url, status_code=302)
 
             token = request.cookies.get(auth_checker.auth_cookie_name)
             token_valid = await LoginPageRouter._validate_token(
@@ -162,9 +156,7 @@ class LoginPageRouter:
             )
 
             if token_valid is False:
-                return RedirectResponse(
-                    url=auth_checker.login_page_url, status_code=302
-                )
+                return RedirectResponse(url=auth_checker.login_page_url, status_code=302)
 
             vpn_connected = await LoginPageRouter._check_vpn_connection(request)
 
@@ -186,9 +178,7 @@ class LoginPageRouter:
 
         except Exception as e:
             logger.error(f"Status check failed: {str(e)}", exc_info=True)
-            raise HTTPException(
-                status_code=500, detail="Internal server error during status check"
-            )
+            raise HTTPException(status_code=500, detail="Internal server error during status check")
 
 
 class MainRouter:
@@ -233,7 +223,7 @@ class MainRouter:
         """
         try:
             access_token = request.cookies.get("access_token") or request.cookies.get(
-                service_login_page_settings.SABER_ACCESS_TOKEN
+                service_login_page_settings.ACCESS_TOKEN
             )
 
             if not access_token:
@@ -260,9 +250,7 @@ class MainRouter:
 
         except HTTPException as e:
             logger.error(f"HTTP error: {str(e)}", exc_info=True)
-            return BaseResponse(
-                success=False, message=str(e.detail), error="http_error"
-            )
+            return BaseResponse(success=False, message=str(e.detail), error="http_error")
         except Exception as e:
             logger.error(f"Unexpected error: {str(e)}", exc_info=True)
             return BaseResponse(

@@ -1,9 +1,9 @@
 import os
-import uvicorn
+from os.path import dirname, join
 
-from fastapi import FastAPI
+import uvicorn
 from dotenv import load_dotenv
-from os.path import join, dirname
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from src.bridge.routers import router_login_page

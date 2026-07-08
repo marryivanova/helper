@@ -1,8 +1,9 @@
+from fastapi import Request, Response, status
 from fastapi.responses import RedirectResponse
 from loguru import logger
-from src.bridge.service.vpn_service import VPNService
-from fastapi import Request, Response, status
+
 from src.bridge.routers.settings import service_login_page_settings
+from src.bridge.service.vpn_service import VPNService
 
 
 class AuthChecker:

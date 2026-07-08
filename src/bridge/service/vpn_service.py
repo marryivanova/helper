@@ -1,7 +1,8 @@
 import ipaddress
-from fastapi import APIRouter, HTTPException
 
+from fastapi import APIRouter, HTTPException
 from loguru import logger
+
 from src.bridge.models.schemas import BaseResponse, PrepareResponseData
 
 router = APIRouter(tags=["Login Page"])
@@ -37,9 +38,7 @@ class VPNService:
             return BaseResponse(
                 success=is_local,
                 message=(
-                    "Access granted"
-                    if is_local
-                    else "Access denied: External network requires VPN"
+                    "Access granted" if is_local else "Access denied: External network requires VPN"
                 ),
                 data=PrepareResponseData(
                     origin="internal" if is_local else "external",
@@ -51,9 +50,7 @@ class VPNService:
 
         except Exception as e:
             logger.error(f"Connection check failed: {str(e)}")
-            return BaseResponse(
-                success=False, message="Connection check error", error=str(e)
-            )
+            return BaseResponse(success=False, message="Connection check error", error=str(e))
 
     @staticmethod
     async def enforce_vpn_policy(request) -> None:

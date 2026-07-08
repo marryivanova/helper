@@ -1,6 +1,7 @@
 import typing as t
-from typing import Optional, Dict, Any
-from pydantic import BaseModel, SecretStr, IPvAnyAddress, Field
+from typing import Any, Dict, Optional
+
+from pydantic import BaseModel, Field, IPvAnyAddress, SecretStr
 
 
 class TokenResponseCheckLoginPage(BaseModel):
