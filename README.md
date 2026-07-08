@@ -11,6 +11,7 @@
 * [📋 CI/CD GitLab ](ci_cd.md)
 * [🔐  SSO/Keycloak](sso.md)
 * [🔐  Все про Auth ](auth.md)
+* [🌐 nginx/шаблоны](nginx.md)
 * [📋 Pytest + Allure ](pytest.md)
 * [📋 Пример использования ABC ](abc.md)
 * [📋 Celery/kafka - Redis/RebbitMQ ](celery_redis.md)

@@ -1,0 +1,23 @@
+services:
+  nginx:
+    container_name: nginx
+    image: umputun/nginx-le:v1.4.3
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - "80"
+      - "443"
+    volumes:
+      - ./nginx/${NGINX_CONF_FILENAME}.conf:/etc/nginx/service.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/data:/srv
+    environment:
+      - TZ=GMT
+      - LE_EMAIL=${EMAIL} # тут свой mail
+      - LE_FQDN=${FQDN} # тут домен
+      - LETSENCRYPT=true
+    networks:
+      - default
+    restart: always
