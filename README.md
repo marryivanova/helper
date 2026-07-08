@@ -9,8 +9,9 @@
 * [🐳 Работа с Docker (Сборка и управление)](docker.md)
 * [📋 Работа с проектом (poertry)](project.md)
 * [📋 CI/CD GitLab ](ci_cd.md)
+* [🔐  SSO/Keycloak](sso.md)
+* [🔐  Все про Auth ](auth.md)
 * [📋 Pytest + Allure ](pytest.md)
-* [📋 Все про Auth ](auth.md)
 * [📋 Пример использования ABC ](abc.md)
 * [📋 Celery/kafka - Redis/RebbitMQ ](celery_redis.md)
 
