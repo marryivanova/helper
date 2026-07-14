@@ -18,8 +18,6 @@
 * [📋 Celery/kafka - Redis/RebbitMQ ](celery_redis.md)
 * [🌐 Torrent (Общая инфа)](torrent.md)
 
-torrent.md
-
 
 ## Важные ресурсы:
 
