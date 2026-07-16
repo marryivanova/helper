@@ -118,6 +118,69 @@ curl -O https://raw.githubusercontent.com/nicolashery/mac-dev-setup/master/.giti
 git config --global core.excludesfile ~/.gitignore
 ```
 
+### Нужно сгенирировать ssh-ключ для подключения к репо.
+
+Статья: https://selectel.ru/blog/tutorials/how-to-generate-ssh/
+
+#### 1. Генерация SSH-ключа
+
+Открой терминал и выполни:
+
+```bash
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+Если система не поддерживает ed25519, используй RSA:
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+```
+Что делать дальше:
+
+- На запрос Enter file... — нажми Enter (стандартный путь ~/.ssh/id_ed25519).
+- На запрос Enter passphrase — введи пароль (или оставь пустым, но с паролем — безопаснее).
+
+✅ Готово. У тебя появились 2 файла:
+
+- id_ed25519 — приватный (НИКОГДА не передавай)
+- id_ed25519.pub — публичный (можно и нужно показывать)
+
+2. Добавление ключа в SSH-агент
+3. 
+- Запусти агент и добавь ключ:
+
+```bash
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+3. Подключение к GitHub
+
+3.1. Скопируй публичный ключ
+```bash
+cat ~/.ssh/id_ed25519.pub
+Скопируй весь вывод (начинается с ssh-ed25519 ...).
+```
+
+3.2. Добавь ключ в GitHub
+
+Зайди в Settings → SSH and GPG keys.
+
+- Нажми New SSH Key.
+- Вставь ключ, дай понятное название (например, Work Laptop).
+- Нажми Add SSH Key.
+
+3.3. Проверь подключение
+
+```bash
+ssh -T git@github.com
+```
+Если увидишь:
+
+```text
+Hi <username>! You've successfully authenticated...
+```
+
+
 ## 3. Установка Docker
 
 Docker — это платформа для разработки, доставки и запуска приложений в контейнерах.
